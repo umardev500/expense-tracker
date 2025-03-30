@@ -19,12 +19,12 @@ export const Login = () => {
         backgroundColor={'transparent'}
         translucent
       />
-      <SafeAreaView className="flex-1 bg-gray-900">
+      <SafeAreaView className="flex-1 bg-darkbg">
         <ScrollView className="flex-1">
-          <View className="p-4 bg-gray-900 flex-1">
+          <View className="p-4 bg-darkbg flex-1">
             <TouchableOpacity
               onPress={() => {}}
-              className="bg-gray-600 w-10 h-10 rounded-lg items-center justify-center">
+              className="bg-white/35 w-10 h-10 rounded-lg items-center justify-center">
               <Icon name="chevron_left" size={24} color="white" />
             </TouchableOpacity>
 
@@ -36,7 +36,7 @@ export const Login = () => {
             </View>
 
             <View className="mt-6 gap-3">
-              <Text className="text-base text-gray-400">
+              <Text className="text-base text-white/80">
                 Login now to track all your expenses
               </Text>
 
@@ -60,7 +60,7 @@ export const Login = () => {
               <TouchableOpacity
                 className="flex-row inline-flex"
                 onPress={() => {}}>
-                <Text className="text-gray-400">Forgot Password?</Text>
+                <Text className="text-white/70">Forgot Password?</Text>
               </TouchableOpacity>
             </View>
 
@@ -68,7 +68,7 @@ export const Login = () => {
               <Button size="lg" fw="font-bold" fc="text-gray-800" />
 
               <View className="flex-row gap-1">
-                <Text className="text-base text-gray-400">
+                <Text className="text-base text-white/70">
                   Dont't have an account?
                 </Text>
                 <TouchableWithoutFeedback>

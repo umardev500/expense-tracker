@@ -30,7 +30,7 @@ const Input = ({placeholder, leadingIcon, size}: InputProps) => {
   return (
     <View
       className={`flex-row items-center gap-2 border ${
-        !focused ? 'border-gray-500' : 'border-gray-400'
+        !focused ? 'border-white/50' : 'border-white/90'
       }  px-4 ${inputSizeClass} h- rounded-lg`}>
       {leadingIcon && leadingIcon}
       <TextInput
@@ -41,7 +41,7 @@ const Input = ({placeholder, leadingIcon, size}: InputProps) => {
           setFocused(false);
         }}
         className="text-base text-white flex-1 h-full"
-        placeholderTextColor={'#9ca3af'}
+        placeholderTextColor={'#ffffffb3'}
         placeholder={placeholder}
       />
     </View>
