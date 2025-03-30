@@ -24,19 +24,27 @@ const getButtonSize = (size?: 'lg' | 'xl') => {
 };
 
 type ButtonProps = {
+  text: string;
+  color: string;
   size?: 'lg' | 'xl';
   fw?: 'font-normal' | 'font-medium' | 'font-semibold' | 'font-bold';
   fc?: string;
 };
 
-const Button = ({size, fw = 'font-normal', fc = 'text-white'}: ButtonProps) => {
+const Button = ({
+  text,
+  color,
+  size,
+  fw = 'font-normal',
+  fc = 'text-white',
+}: ButtonProps) => {
   const sizes = getButtonSize(size);
 
   return (
     <TouchableOpacity className="w-full" onPress={() => {}}>
       <View
-        className={`bg-lime-500 ${sizes.button} rounded-xl px-4 flex-row items-center justify-center`}>
-        <Text className={`${sizes.text} ${fw} ${fc}`}>Login</Text>
+        className={`${color} ${sizes.button} rounded-xl px-4 flex-row items-center justify-center`}>
+        <Text className={`${sizes.text} ${fw} ${fc}`}>{text}</Text>
       </View>
     </TouchableOpacity>
   );

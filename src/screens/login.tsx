@@ -24,7 +24,7 @@ export const Login = () => {
           <View className="p-4 bg-darkbg flex-1">
             <TouchableOpacity
               onPress={() => {}}
-              className="bg-white/35 w-10 h-10 rounded-lg items-center justify-center">
+              className="bg-white/25 w-10 h-10 rounded-lg items-center justify-center">
               <Icon name="chevron_left" size={24} color="white" />
             </TouchableOpacity>
 
@@ -65,7 +65,13 @@ export const Login = () => {
             </View>
 
             <View className="gap-5 items-center">
-              <Button size="lg" fw="font-bold" fc="text-gray-800" />
+              <Button
+                text="Login"
+                color="bg-lime-400"
+                size="lg"
+                fw="font-bold"
+                fc="text-gray-800"
+              />
 
               <View className="flex-row gap-1">
                 <Text className="text-base text-white/70">
