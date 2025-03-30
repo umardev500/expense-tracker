@@ -45,13 +45,15 @@ export const Login = () => {
                   size="lg"
                   placeholder="Type your email"
                   leadingIcon={
-                    <Icon name="email_alternate" size={22} color="white" />
+                    <Icon fill name="email_alternate" size={22} color="white" />
                   }
                 />
                 <Input
                   size="lg"
                   placeholder="Enter password"
-                  leadingIcon={<Icon name="lock" size={22} color="white" />}
+                  leadingIcon={
+                    <Icon fill name="lock" size={22} color="white" />
+                  }
                 />
               </View>
             </View>
