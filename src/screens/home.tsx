@@ -170,8 +170,12 @@ export const Home = () => {
           {/* Recent transactions */}
           <View className="gap-4 flex-1">
             <Text className="text-white text-2xl">Recent transactions</Text>
-            {transactions.map(transaction => (
-              <TransactionCard key={transaction.id} {...transaction} />
+            {transactions.map((transaction, index) => (
+              <TransactionCard
+                delay={index * 100}
+                key={transaction.id}
+                {...transaction}
+              />
             ))}
           </View>
         </ScrollView>

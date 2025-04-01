@@ -2,15 +2,20 @@ import {Icon} from '@/components/custom-icon';
 import {Spacer} from '@/components/spacer';
 import {Transaction} from '@/types/transactions';
 import {Text, View} from 'react-native';
+import Animated, {FadeInDown} from 'react-native-reanimated';
 
-interface Props extends Transaction {}
+interface Props extends Transaction {
+  delay: number;
+}
 
 export const TransactionCard = (props: Props) => {
   const {category, description, isExpense, amount, date} = props;
   const symbol = isExpense ? '+' : '-';
 
   return (
-    <View className="flex-row justify-between items-center py-2.5 px-4 rounded-2xl bg-white/10">
+    <Animated.View
+      entering={FadeInDown.delay(props.delay)}
+      className="flex-row justify-between items-center py-2.5 px-4 rounded-2xl bg-white/10">
       <View className="flex-row items-center gap-3">
         <View
           className={'w-12 h-12 rounded-2xl items-center justify-center'}
@@ -37,6 +42,6 @@ export const TransactionCard = (props: Props) => {
         </Text>
         <Text className="text-white/50 text-base text-right">{date}</Text>
       </View>
-    </View>
+    </Animated.View>
   );
 };
