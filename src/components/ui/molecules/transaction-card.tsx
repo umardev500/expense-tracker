@@ -10,7 +10,7 @@ interface Props extends Transaction {
 
 export const TransactionCard = (props: Props) => {
   const {category, description, isExpense, amount, date} = props;
-  const symbol = isExpense ? '+' : '-';
+  const symbol = isExpense ? '-' : '+';
 
   return (
     <Animated.View
