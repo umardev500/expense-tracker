@@ -30,6 +30,8 @@ const glyphMap = {
   email_alternate: 0xe0e6,
 };
 
+export type IconName = keyof typeof glyphMap;
+
 const IconRegular = createIconSet(glyphMap, {
   postScriptName: 'Material Symbols Rounded Regular',
   fontFileName: 'ms.ttf',
