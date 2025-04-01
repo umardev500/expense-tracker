@@ -1,9 +1,35 @@
 import {Icon} from '@/components/custom-icon';
-import {TransactionCard, TransactionCategory} from '@/components/ui/molecules';
+import {TransactionCategory, TransactionProps} from '@/components/ui/molecules';
+import {TransactionList} from '@/components/ui/organisms';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const Home = () => {
+  const transactions: TransactionProps[] = [
+    {
+      id: '1',
+      data: {
+        category: TransactionCategory.EXPENSE,
+        description: 'Checkup fee',
+        inOrOut: 'out',
+        amount: 30,
+        date: '26 Nov',
+        iconContainerClassName: 'bg-red-500',
+      },
+    },
+    {
+      id: '2',
+      data: {
+        category: TransactionCategory.INCOME,
+        description: 'Random money',
+        inOrOut: 'in',
+        amount: 50,
+        date: '26 Nov',
+        iconContainerClassName: 'bg-green-500',
+      },
+    },
+  ];
+
   return (
     <SafeAreaView>
       <View className="p-4">
@@ -23,22 +49,7 @@ export const Home = () => {
         {/* Recent transactions */}
         <View className="mt-6 gap-4">
           <Text className="text-white text-2xl">Recent transactions</Text>
-          <TransactionCard
-            category={TransactionCategory.EXPENSE}
-            description="Checkup fee"
-            inOrOut="out"
-            amount={30}
-            date="26 Nov"
-            iconContainerClassName="bg-red-500"
-          />
-          <TransactionCard
-            category={TransactionCategory.INCOME}
-            description="Random money"
-            inOrOut="in"
-            amount={50}
-            date="26 Nov"
-            iconContainerClassName="bg-green-500"
-          />
+          <TransactionList data={transactions} />
         </View>
       </View>
     </SafeAreaView>

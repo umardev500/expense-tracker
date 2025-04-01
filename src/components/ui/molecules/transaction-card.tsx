@@ -25,14 +25,14 @@ type Props = {
   iconContainerClassName?: string;
 };
 
-export const TransactionCard = ({
-  category,
-  description,
-  inOrOut,
-  amount,
-  date,
-  iconContainerClassName,
-}: Props) => {
+export type TransactionProps = {
+  id: string;
+  data: Props;
+};
+
+export const TransactionCard = ({data}: TransactionProps) => {
+  const {category, description, inOrOut, amount, date, iconContainerClassName} =
+    data;
   const symbol = inOrOut === 'in' ? '+' : '-';
   const icon = getTransactionIcon(category);
 
