@@ -28,6 +28,14 @@ const glyphMap = {
   check: 0xe5ca,
   lock: 0xe897,
   email_alternate: 0xe0e6,
+  arrow_upward: 0xe5d8,
+  arrow_downward: 0xe5db,
+  electric_bolt: 0xec1c,
+  electrical_services: 0xf102,
+  offline_bolt: 0xe932,
+  paid: 0xf041,
+  favorite: 0xe87d,
+  vital_sign: 0xe650,
 };
 
 export type IconName = keyof typeof glyphMap;

@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkbg: '#1D1616',
+        darkbg: 'black',
       },
     },
   },
