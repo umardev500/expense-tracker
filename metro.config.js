@@ -9,6 +9,10 @@ const {withNativeWind} = require('nativewind/metro');
  */
 const config = mergeConfig(getDefaultConfig(__dirname), {
   /* your config */
+  resolver: {
+    ...getDefaultConfig(__dirname).resolver,
+    assetExts: [...getDefaultConfig(__dirname).resolver.assetExts, 'lottie'],
+  },
 });
 
 module.exports = withNativeWind(config, {input: './src/global.css'});

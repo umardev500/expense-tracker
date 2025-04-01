@@ -1,7 +1,10 @@
+import loading from '@/assets/anim/loading-com.json';
 import image from '@/assets/images/card-joined.png';
 import {Icon} from '@/components/custom-icon';
 import {TransactionCard} from '@/components/ui/molecules';
 import {Transaction} from '@/types/transactions';
+import LottieView from 'lottie-react-native';
+import React, {useEffect, useState} from 'react';
 import {
   ImageBackground,
   ScrollView,
@@ -12,6 +15,8 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const Home = () => {
+  const [loadingTrx, setLoadingTrx] = useState(true);
+
   const transactions: Transaction[] = [
     {
       id: '1',
@@ -99,6 +104,12 @@ export const Home = () => {
     },
   ];
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingTrx(false);
+    }, 500);
+  }, []);
+
   return (
     <SafeAreaView className="flex-1">
       <View className="px-4 flex-1">
@@ -168,15 +179,26 @@ export const Home = () => {
           </View>
 
           {/* Recent transactions */}
-          <View className="gap-4 flex-1">
+          <View className="gap-4 mt-6">
             <Text className="text-white text-2xl">Recent transactions</Text>
-            {transactions.map((transaction, index) => (
-              <TransactionCard
-                delay={index * 100}
-                key={transaction.id}
-                {...transaction}
-              />
-            ))}
+            {loadingTrx ? (
+              <View className="items-center justify-center h-64">
+                <LottieView
+                  source={loading}
+                  autoPlay
+                  loop
+                  style={{width: 35, height: 35}}
+                />
+              </View>
+            ) : (
+              transactions.map((transaction, index) => (
+                <TransactionCard
+                  delay={index * 100}
+                  key={transaction.id}
+                  {...transaction}
+                />
+              ))
+            )}
           </View>
         </ScrollView>
 
