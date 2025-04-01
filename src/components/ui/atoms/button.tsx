@@ -43,7 +43,7 @@ const Button = ({
   return (
     <TouchableOpacity className="w-full" onPress={() => {}}>
       <View
-        className={`${color} ${sizes.button} rounded-xl px-4 flex-row items-center justify-center`}>
+        className={`${color} ${sizes.button} rounded-2xl px-4 flex-row items-center justify-center`}>
         <Text className={`${sizes.text} ${fw} ${fc}`}>{text}</Text>
       </View>
     </TouchableOpacity>

@@ -31,7 +31,7 @@ const Input = ({placeholder, leadingIcon, size}: InputProps) => {
     <View
       className={`flex-row items-center gap-2 border ${
         !focused ? 'border-white/50' : 'border-white/90'
-      }  px-4 ${inputSizeClass} h- rounded-lg`}>
+      }  px-4 ${inputSizeClass} h- rounded-2xl`}>
       {leadingIcon && leadingIcon}
       <TextInput
         onFocus={() => {
