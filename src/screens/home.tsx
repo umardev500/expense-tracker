@@ -175,6 +175,11 @@ export const Home = () => {
             ))}
           </View>
         </ScrollView>
+
+        {/* Fab */}
+        <View className="absolute bottom-6 right-6 w-14 h-14 shadow-xl shadow-lime-900 rounded-full items-center justify-center bg-lime-600">
+          <Icon name="add" size={24} color="black" />
+        </View>
       </View>
     </SafeAreaView>
   );
