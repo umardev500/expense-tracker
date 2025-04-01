@@ -3,11 +3,11 @@
   "data": [
     {
       "path": "src/assets/fonts/ms.ttf",
-      "sha1": "ff5ed2b0f16dff6ffd8f20c53d15814fefdf6365"
+      "sha1": "dd8811990961f81f5c16c795f18814ab606ecf6f"
     },
     {
       "path": "src/assets/fonts/ms_fill.ttf",
-      "sha1": "866678281ddcc047268eb0577acf83579f47b629"
+      "sha1": "778c56067784cacc70ee7d4eabfae54844577c41"
     }
   ]
 }

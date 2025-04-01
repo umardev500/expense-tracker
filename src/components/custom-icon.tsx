@@ -36,6 +36,9 @@ const glyphMap = {
   paid: 0xf041,
   favorite: 0xe87d,
   vital_sign: 0xe650,
+  local_laundry_service: 0xe54a,
+  restaurant: 0xe56c,
+  apparel: 0xef7b,
 };
 
 export type IconName = keyof typeof glyphMap;
