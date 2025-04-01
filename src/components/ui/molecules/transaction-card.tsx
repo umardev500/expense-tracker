@@ -1,58 +1,37 @@
-import {Icon, IconName} from '@/components/custom-icon';
+import {Icon} from '@/components/custom-icon';
 import {Spacer} from '@/components/spacer';
+import {Transaction} from '@/types/transactions';
 import {Text, View} from 'react-native';
 
-export enum TransactionCategory {
-  INCOME = 'income',
-  EXPENSE = 'expense',
-}
+interface Props extends Transaction {}
 
-const getTransactionIcon = (category: TransactionCategory): IconName => {
-  switch (category) {
-    case TransactionCategory.INCOME:
-      return 'attach_money';
-    case TransactionCategory.EXPENSE:
-      return 'trending_up';
-  }
-};
-
-type Props = {
-  category: TransactionCategory;
-  description: string;
-  inOrOut: 'in' | 'out';
-  amount: number;
-  date: string;
-  iconContainerClassName?: string;
-};
-
-export type TransactionProps = {
-  id: string;
-  data: Props;
-};
-
-export const TransactionCard = ({data}: TransactionProps) => {
-  const {category, description, inOrOut, amount, date, iconContainerClassName} =
-    data;
-  const symbol = inOrOut === 'in' ? '+' : '-';
-  const icon = getTransactionIcon(category);
+export const TransactionCard = (props: Props) => {
+  const {category, description, isExpense, amount, date} = props;
+  const symbol = isExpense ? '+' : '-';
 
   return (
     <View className="flex-row justify-between items-center py-2.5 px-4 rounded-2xl bg-white/10">
       <View className="flex-row items-center gap-3">
         <View
-          className={`${iconContainerClassName} w-12 h-12 rounded-2xl items-center justify-center`}>
-          <Icon name={icon} size={24} color="white" />
+          className={'w-12 h-12 rounded-2xl items-center justify-center'}
+          style={{backgroundColor: category.iconContainerColor}}>
+          <Icon
+            fill={category.fill}
+            name={category.icon}
+            size={24}
+            color={category.iconColor}
+          />
           <Spacer className="mb-[2px]" />
         </View>
         <View>
-          <Text className="text-white text-xl">{category}</Text>
+          <Text className="text-white text-xl">{category.name}</Text>
           <Text className="text-white/50 text-base">{description}</Text>
         </View>
       </View>
       <View>
         <Text
           className={`${
-            inOrOut === 'in' ? 'text-green-700' : 'text-orange-700'
+            !isExpense ? 'text-green-700' : 'text-orange-700'
           } text-2xl font-medium text-right`}>
           {symbol} ${amount}
         </Text>
