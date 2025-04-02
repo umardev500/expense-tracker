@@ -1,17 +1,14 @@
 import {Home} from '@/screens/home';
 import {DarkTheme, NavigationContainer} from '@react-navigation/native';
-import {StatusBar, View} from 'react-native';
+import {View} from 'react-native';
+import {SystemBars} from 'react-native-edge-to-edge';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import './global.css';
 
 const App = () => {
   return (
     <>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={'transparent'}
-        translucent
-      />
+      <SystemBars style={'light'} />
       <GestureHandlerRootView>
         <NavigationContainer theme={DarkTheme}>
           <View className="flex-1 bg-darkbg">

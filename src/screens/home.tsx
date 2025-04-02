@@ -114,20 +114,20 @@ export const Home = () => {
   return (
     <SafeAreaView className="flex-1">
       <View className="px-4 flex-1">
-        {/* Header */}
-        <View className="flex-row justify-between items-center pb-2 pt-4">
-          <View>
-            <Text className="text-white/60 text-xl">Hello,</Text>
-            <Text className="text-white text-2xl">Steven Jhon</Text>
-          </View>
-          <View className="bg-white/20 rounded-full w-11 h-11 items-center justify-center">
-            <TouchableOpacity>
-              <Icon name="search" size={24} color="white" />
-            </TouchableOpacity>
-          </View>
-        </View>
-
         <ScrollView showsVerticalScrollIndicator={false}>
+          {/* Header */}
+          <View className="flex-row justify-between items-center pb-2 pt-4">
+            <View>
+              <Text className="text-white/60 text-xl">Hello,</Text>
+              <Text className="text-white text-2xl">Steven Jhon</Text>
+            </View>
+            <View className="bg-white/20 rounded-full w-11 h-11 items-center justify-center">
+              <TouchableOpacity>
+                <Icon name="search" size={24} color="white" />
+              </TouchableOpacity>
+            </View>
+          </View>
+
           {/* Card */}
           <View className="mt-6 mb-4">
             <ImageBackground
@@ -202,7 +202,6 @@ export const Home = () => {
             )}
           </View>
         </ScrollView>
-
         <Fab onPress={() => {}} />
       </View>
     </SafeAreaView>
