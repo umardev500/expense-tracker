@@ -1,6 +1,7 @@
 import loading from '@/assets/anim/loading-com.json';
 import image from '@/assets/images/card-joined.png';
 import {Icon} from '@/components/custom-icon';
+import {Fab} from '@/components/ui/atoms';
 import {TransactionCard} from '@/components/ui/molecules';
 import {Transaction} from '@/types/transactions';
 import LottieView from 'lottie-react-native';
@@ -202,10 +203,7 @@ export const Home = () => {
           </View>
         </ScrollView>
 
-        {/* Fab */}
-        <View className="absolute bottom-6 right-6 w-14 h-14 shadow-xl shadow-lime-900 rounded-full items-center justify-center bg-lime-600">
-          <Icon name="add" size={24} color="black" />
-        </View>
+        <Fab onPress={() => {}} />
       </View>
     </SafeAreaView>
   );
