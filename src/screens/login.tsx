@@ -3,22 +3,18 @@ import {Button, Input} from '@/components/ui/atoms';
 import React from 'react';
 import {
   ScrollView,
-  StatusBar,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import {SystemBars} from 'react-native-edge-to-edge';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const Login = () => {
   return (
     <>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={'transparent'}
-        translucent
-      />
+      <SystemBars style={'light'} />
       <SafeAreaView className="flex-1 bg-darkbg">
         <ScrollView className="flex-1">
           <View className="p-4 bg-darkbg flex-1">
