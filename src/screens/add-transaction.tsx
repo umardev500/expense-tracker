@@ -2,7 +2,8 @@ import {Spacer} from '@/components/spacer';
 import {Button, Input} from '@/components/ui/atoms';
 import {Header} from '@/components/ui/organisms';
 import {useState} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-controller';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const AddTransaction = () => {
@@ -23,7 +24,10 @@ export const AddTransaction = () => {
 
         <Spacer className="h-6" />
 
-        <ScrollView>
+        <KeyboardAwareScrollView
+          showsVerticalScrollIndicator={false}
+          bottomOffset={54}
+          style={{flex: 1}}>
           <View className="px-4 gap-4">
             <View className="gap-2">
               <Text className="text-white/80 text-base">Type</Text>
@@ -96,9 +100,9 @@ export const AddTransaction = () => {
               />
             </View>
           </View>
-        </ScrollView>
+        </KeyboardAwareScrollView>
 
-        <View className="border-t border-t-white/50 mt-4 py-4 px-4">
+        <View className="border-t border-t-white/50 py-4 px-4">
           <Button
             text="Submit"
             color="bg-lime-400"

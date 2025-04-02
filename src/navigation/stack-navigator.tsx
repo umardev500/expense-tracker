@@ -1,5 +1,5 @@
 import {AddTransaction, Home, Login} from '@/screens';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +12,7 @@ export const StackNavigator = () => {
           backgroundColor: 'transparent',
         },
         headerShown: false,
+        ...TransitionPresets.ModalSlideFromBottomIOS,
       }}>
       {/* Auth screen */}
       <Stack.Screen name="Login" component={Login} />
