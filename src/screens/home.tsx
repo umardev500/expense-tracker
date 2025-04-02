@@ -121,8 +121,8 @@ export const Home = () => {
             {/* Header */}
             <View className="flex-row justify-between items-center pb-2 pt-4">
               <View>
-                <Text className="text-white/60 text-xl">Hello,</Text>
-                <Text className="text-white text-2xl">Steven Jhon</Text>
+                <Text className="text-white/60 text-lg">Hello,</Text>
+                <Text className="text-white text-xl">Steven Jhon</Text>
               </View>
               <View className="bg-white/20 rounded-full w-11 h-11 items-center justify-center">
                 <TouchableOpacity>
@@ -137,15 +137,15 @@ export const Home = () => {
                 source={image}
                 className="w-full h-[218px]"
                 resizeMode="stretch">
-                <View className="p-6 h-[189px] justify-between">
+                <View className="px-6 py-5 h-[189px] justify-between">
                   <View>
                     <View className="flex-row items-center justify-between">
-                      <Text className="text-xl font-medium text-gray-800">
+                      <Text className="text-lg font-medium text-gray-800">
                         Total Balance
                       </Text>
                       <Icon name="more_horiz" size={24} color="black" />
                     </View>
-                    <Text className="mt-2 text-4xl font-bold text-gray-800">
+                    <Text className="mt-1 text-3xl font-bold text-gray-800">
                       $ 334.00
                     </Text>
                   </View>
@@ -156,11 +156,11 @@ export const Home = () => {
                         <View className="w-8 h-8 rounded-full items-center justify-center bg-gray-200">
                           <Icon name="arrow_upward" size={18} color="black" />
                         </View>
-                        <Text className="text-gray-600 text-lg font-medium">
+                        <Text className="text-gray-600 text-base font-medium">
                           Income
                         </Text>
                       </View>
-                      <Text className="text-green-600 font-bold text-2xl">
+                      <Text className="text-green-600 font-bold text-xl">
                         $ 2164.00
                       </Text>
                     </View>
@@ -169,11 +169,11 @@ export const Home = () => {
                         <View className="w-8 h-8 rounded-full items-center justify-center bg-gray-200">
                           <Icon name="arrow_downward" size={18} color="black" />
                         </View>
-                        <Text className="text-gray-600 text-lg font-medium">
+                        <Text className="text-gray-600 text-base font-medium">
                           Expense
                         </Text>
                       </View>
-                      <Text className="text-orange-600 font-bold text-2xl">
+                      <Text className="text-orange-600 font-bold text-xl">
                         $ 1830.00
                       </Text>
                     </View>
@@ -184,7 +184,7 @@ export const Home = () => {
 
             {/* Recent transactions */}
             <View className="gap-4 mt-6 pb-4">
-              <Text className="text-white text-2xl">Recent transactions</Text>
+              <Text className="text-white text-xl">Recent transactions</Text>
               {loadingTrx ? (
                 <View className="items-center justify-center h-64">
                   <LottieView

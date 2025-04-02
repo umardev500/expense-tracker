@@ -29,18 +29,18 @@ export const TransactionCard = (props: Props) => {
           <Spacer className="mb-[2px]" />
         </View>
         <View>
-          <Text className="text-white text-xl">{category.name}</Text>
-          <Text className="text-white/50 text-base">{description}</Text>
+          <Text className="text-white text-lg">{category.name}</Text>
+          <Text className="text-white/50 text-sm">{description}</Text>
         </View>
       </View>
       <View>
         <Text
           className={`${
             !isExpense ? 'text-green-700' : 'text-orange-700'
-          } text-2xl font-medium text-right`}>
+          } text-xl font-medium text-right`}>
           {symbol} ${amount}
         </Text>
-        <Text className="text-white/50 text-base text-right">{date}</Text>
+        <Text className="text-white/50 text-sm text-right">{date}</Text>
       </View>
     </Animated.View>
   );
