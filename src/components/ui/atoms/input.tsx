@@ -43,7 +43,7 @@ const Input = ({placeholder, leadingIcon, size, keyboardType}: InputProps) => {
           setFocused(false);
         }}
         className="text-base text-white flex-1 h-full"
-        placeholderTextColor={'rgba(255,255,255,0.7)'}
+        placeholderTextColor={'rgba(255,255,255,0.5)'}
         placeholder={placeholder}
       />
     </View>
