@@ -15,4 +15,7 @@ const config = mergeConfig(getDefaultConfig(__dirname), {
   },
 });
 
-module.exports = withNativeWind(config, {input: './src/global.css'});
+module.exports = withNativeWind(config, {
+  input: './src/global.css',
+  inlineRem: 16,
+});
