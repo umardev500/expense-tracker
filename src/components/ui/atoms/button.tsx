@@ -41,7 +41,7 @@ const Button = ({
   const sizes = getButtonSize(size);
 
   return (
-    <TouchableOpacity className="w-full" onPress={() => {}}>
+    <TouchableOpacity activeOpacity={0.7} className="w-full" onPress={() => {}}>
       <View
         className={`${color} ${sizes.button} rounded-2xl px-4 flex-row items-center justify-center`}>
         <Text className={`${sizes.text} ${fw} ${fc}`}>{text}</Text>
