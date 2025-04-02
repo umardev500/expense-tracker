@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextInput, View} from 'react-native';
+import {KeyboardTypeOptions, TextInput, View} from 'react-native';
 
 const getInputSize = (size?: 'lg' | 'xl'): string => {
   let hClass;
@@ -21,9 +21,10 @@ type InputProps = {
   placeholder?: string;
   leadingIcon?: React.ReactNode;
   size?: 'lg' | 'xl';
+  keyboardType?: KeyboardTypeOptions;
 };
 
-const Input = ({placeholder, leadingIcon, size}: InputProps) => {
+const Input = ({placeholder, leadingIcon, size, keyboardType}: InputProps) => {
   const [focused, setFocused] = useState(false);
   const inputSizeClass = getInputSize(size);
 
@@ -34,6 +35,7 @@ const Input = ({placeholder, leadingIcon, size}: InputProps) => {
       }  px-4 ${inputSizeClass} h- rounded-2xl`}>
       {leadingIcon && leadingIcon}
       <TextInput
+        keyboardType={keyboardType}
         onFocus={() => {
           setFocused(true);
         }}
@@ -41,7 +43,7 @@ const Input = ({placeholder, leadingIcon, size}: InputProps) => {
           setFocused(false);
         }}
         className="text-base text-white flex-1 h-full"
-        placeholderTextColor={'#ffffffb3'}
+        placeholderTextColor={'rgba(255,255,255,0.7)'}
         placeholder={placeholder}
       />
     </View>
