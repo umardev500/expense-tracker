@@ -1,5 +1,4 @@
-import {Home} from '@/screens/home';
-import {DarkTheme, NavigationContainer} from '@react-navigation/native';
+import {AppNavigator} from '@/navigation';
 import {View} from 'react-native';
 import {SystemBars} from 'react-native-edge-to-edge';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -10,11 +9,9 @@ const App = () => {
     <>
       <SystemBars style={'light'} />
       <GestureHandlerRootView>
-        <NavigationContainer theme={DarkTheme}>
-          <View className="flex-1 bg-darkbg">
-            <Home />
-          </View>
-        </NavigationContainer>
+        <View className="flex-1 bg-darkbg">
+          <AppNavigator />
+        </View>
       </GestureHandlerRootView>
     </>
   );
