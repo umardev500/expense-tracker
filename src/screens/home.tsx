@@ -3,6 +3,7 @@ import image from '@/assets/images/card-joined.png';
 import {Icon} from '@/components/custom-icon';
 import {Fab} from '@/components/ui/atoms';
 import {TransactionCard} from '@/components/ui/molecules';
+import {dummyTransactions} from '@/data';
 import {Transaction} from '@/types/transactions';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
@@ -20,92 +21,7 @@ export const Home = () => {
   const [loadingTrx, setLoadingTrx] = useState(true);
   const navigation = useNavigation();
 
-  const transactions: Transaction[] = [
-    {
-      id: '1',
-      category: {
-        name: 'Health',
-        fill: true,
-        icon: 'favorite',
-        iconColor: 'white',
-        iconContainerColor: '#dc2626',
-      },
-      description: 'Checkup fee',
-      isExpense: true,
-      amount: 30,
-      date: '26 Nov',
-    },
-    {
-      id: '2',
-      category: {
-        name: 'Income',
-        fill: true,
-        icon: 'paid',
-        iconColor: 'white',
-        iconContainerColor: '#15803d',
-      },
-      description: 'Random money',
-      isExpense: false,
-      amount: 50,
-      date: '26 Nov',
-    },
-    {
-      id: '3',
-      category: {
-        name: 'Utilities',
-        fill: true,
-        icon: 'electrical_services',
-        iconColor: 'white',
-        iconContainerColor: '#f97316',
-      },
-      description: 'Electricity bill',
-      isExpense: true,
-      amount: 120,
-      date: '26 Nov',
-    },
-    {
-      id: '4',
-      category: {
-        name: 'Dining',
-        fill: true,
-        icon: 'restaurant',
-        iconColor: 'white',
-        iconContainerColor: '#be185d',
-      },
-      description: 'Had dinner at hotel',
-      isExpense: false,
-      amount: 18,
-      date: '27 Nov',
-    },
-    {
-      id: '5',
-      category: {
-        name: 'Clothing',
-        fill: true,
-        icon: 'apparel',
-        iconColor: 'white',
-        iconContainerColor: '#7e22ce',
-      },
-      description: 'Winter coat',
-      isExpense: false,
-      amount: 10,
-      date: '27 Nov',
-    },
-    {
-      id: '6',
-      category: {
-        name: 'Cleaning',
-        fill: true,
-        icon: 'local_laundry_service',
-        iconColor: 'white',
-        iconContainerColor: '#2563eb',
-      },
-      description: 'Laundry service',
-      isExpense: false,
-      amount: 10,
-      date: '27 Nov',
-    },
-  ];
+  const transactions: Transaction[] = dummyTransactions;
 
   useEffect(() => {
     setTimeout(() => {
@@ -125,7 +41,7 @@ export const Home = () => {
             <Text className="text-white text-xl">Umar Sinclair</Text>
           </View>
           <View className="bg-white/20 rounded-full w-11 h-11 items-center justify-center">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Search')}>
               <Icon name="search" size={24} color="white" />
             </TouchableOpacity>
           </View>

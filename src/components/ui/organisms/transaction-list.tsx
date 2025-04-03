@@ -13,7 +13,9 @@ export const TransactionList = ({data}: Props) => {
   return (
     <FlatList
       data={data}
-      renderItem={({item}) => <TransactionCard {...item} />}
+      renderItem={({item, index}) => (
+        <TransactionCard delay={index * 100} {...item} />
+      )}
       ItemSeparatorComponent={Separator}
     />
   );

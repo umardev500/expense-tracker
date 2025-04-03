@@ -43,7 +43,7 @@ export const Wallets = () => {
           <Text className="text-white text-xl">My Wallets</Text>
           <IconButton
             onPress={() => {
-              navigation.navigate('NewWallet');
+              navigation.navigate('NewWallet', {});
             }}
             iconColor="black"
             containerColor="#84cc16"
