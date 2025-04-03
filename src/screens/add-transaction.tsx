@@ -103,13 +103,9 @@ export const AddTransaction = () => {
         </KeyboardAwareScrollView>
 
         <View className="border-t border-t-white/50 py-4 px-4">
-          <Button
-            text="Submit"
-            color="bg-lime-400"
-            size="lg"
-            fw="font-bold"
-            fc="text-gray-800"
-          />
+          <Button color="#a3e635" size="lg" corderRadius={18}>
+            <Text className="text-black text-xl font-medium">Submit</Text>
+          </Button>
         </View>
       </SafeAreaView>
     </View>
