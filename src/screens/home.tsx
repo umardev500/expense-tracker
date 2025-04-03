@@ -110,7 +110,7 @@ export const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoadingTrx(false);
-    }, 500);
+    }, 1500);
   }, []);
 
   const {top} = useSafeAreaInsets();
@@ -146,7 +146,7 @@ export const Home = () => {
                   <Icon name="more_horiz" size={24} color="black" />
                 </View>
                 <Text className="mt-1 text-3xl font-bold text-gray-800">
-                  $ 334.00
+                  $ {loadingTrx ? '----' : '334.00'}
                 </Text>
               </View>
 
@@ -160,8 +160,8 @@ export const Home = () => {
                       Income
                     </Text>
                   </View>
-                  <Text className="text-green-600 font-bold text-xl">
-                    $ 2164.00
+                  <Text className="text-green-600 font-bold text-xl text-center">
+                    $ {loadingTrx ? '----' : '2164.00'}
                   </Text>
                 </View>
                 <View className="gap-1">
@@ -173,8 +173,8 @@ export const Home = () => {
                       Expense
                     </Text>
                   </View>
-                  <Text className="text-orange-600 font-bold text-xl">
-                    $ 1830.00
+                  <Text className="text-orange-600 font-bold text-xl text-center">
+                    $ {loadingTrx ? '----' : '1830.00'}
                   </Text>
                 </View>
               </View>
