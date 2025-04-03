@@ -122,7 +122,7 @@ export const Home = () => {
         <View className="flex-row justify-between items-center pb-2 pt-4">
           <View>
             <Text className="text-white/60 text-lg">Hello,</Text>
-            <Text className="text-white text-xl">Sarah Jhonson</Text>
+            <Text className="text-white text-xl">Umar Sinclair</Text>
           </View>
           <View className="bg-white/20 rounded-full w-11 h-11 items-center justify-center">
             <TouchableOpacity>
