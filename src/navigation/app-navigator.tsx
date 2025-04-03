@@ -3,8 +3,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {memo} from 'react';
 
 export const AppNavigator = memo(() => {
-  console.log('render');
-
   return (
     <NavigationContainer>
       <StackNavigator />

@@ -8,7 +8,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 export const StackNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Main"
       screenOptions={{
         cardStyle: {
           backgroundColor: 'transparent',
@@ -20,7 +20,7 @@ export const StackNavigator = () => {
       <Stack.Screen name="Login" component={Login} />
 
       {/* Main app */}
-      <Stack.Screen name="Home" component={BottomTab} />
+      <Stack.Screen name="Main" component={BottomTab} />
       <Stack.Screen name="AddTransaction" component={AddTransaction} />
     </Stack.Navigator>
   );
