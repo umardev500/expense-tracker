@@ -1,4 +1,4 @@
-import {Input, Button} from '@/components/ui/atoms';
+import {Button, Input} from '@/components/ui/atoms';
 import {ImageUploader} from '@/components/ui/molecules';
 import {Header} from '@/components/ui/organisms';
 import {Text, View} from 'react-native';
