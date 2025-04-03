@@ -207,7 +207,7 @@ export const Home = () => {
           </ScrollView>
           <Fab
             onPress={() => {
-              navigation.navigate('AddTransaction' as never);
+              navigation.navigate('AddTransaction');
             }}
           />
         </View>

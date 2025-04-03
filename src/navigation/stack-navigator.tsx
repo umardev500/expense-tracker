@@ -1,7 +1,9 @@
-import {AddTransaction, Home, Login} from '@/screens';
+import {BottomTab} from '@/navigation/bottom-tab';
+import {AddTransaction, Login} from '@/screens';
+import {RootStackParamList} from '@/types';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 export const StackNavigator = () => {
   return (
@@ -18,7 +20,7 @@ export const StackNavigator = () => {
       <Stack.Screen name="Login" component={Login} />
 
       {/* Main app */}
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={BottomTab} />
       <Stack.Screen name="AddTransaction" component={AddTransaction} />
     </Stack.Navigator>
   );
