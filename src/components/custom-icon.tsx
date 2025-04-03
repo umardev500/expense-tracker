@@ -1,4 +1,5 @@
 import {createIconSet} from '@react-native-vector-icons/common';
+import {StyleProp, TextStyle} from 'react-native';
 
 const glyphMap = {
   home: 0xe88a,
@@ -58,12 +59,13 @@ type Props = {
   name: keyof typeof glyphMap;
   size: number;
   color: string;
+  style?: StyleProp<TextStyle>;
 };
 
-export const Icon = ({fill = false, name, size, color}: Props) => {
+export const Icon = ({fill = false, name, size, color, style}: Props) => {
   return fill ? (
-    <IconFill name={name} size={size} color={color} />
+    <IconFill name={name} size={size} color={color} style={style} />
   ) : (
-    <IconRegular name={name} size={size} color={color} />
+    <IconRegular name={name} size={size} color={color} style={style} />
   );
 };

@@ -1,23 +1,33 @@
 import {IconButton} from '@/components/ui/atoms';
 import {WalletList} from '@/components/ui/organisms';
 import {Wallet} from '@/types';
+import {useNavigation} from '@react-navigation/native';
 import {Text, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const Wallets = () => {
+  const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
   const wallets: Wallet[] = [
     {
       name: 'Freelancing',
       amount: 95.04,
+      source: require('@/assets/images/icons/wallet.png'),
     },
     {
       name: 'Salary',
       amount: 1000,
+      source: require('@/assets/images/icons/wallet-11.png'),
     },
     {
       name: 'Savings',
       amount: 350,
+      source: require('@/assets/images/icons/wallet-3.png'),
+    },
+    {
+      name: 'Random',
+      amount: 210,
+      source: require('@/assets/images/icons/wallet-9.png'),
     },
   ];
 
@@ -32,7 +42,9 @@ export const Wallets = () => {
         <View className="flex-row items-center justify-between">
           <Text className="text-white text-xl">My Wallets</Text>
           <IconButton
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('NewWallet');
+            }}
             iconColor="black"
             containerColor="#84cc16"
             name="add"
