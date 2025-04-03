@@ -2,7 +2,10 @@ export type RootStackParamList = {
   Main: undefined;
   AddTransaction: undefined;
   Login: undefined;
-  NewWallet: undefined;
+  NewWallet: {
+    name?: string;
+    uri?: string;
+  };
 };
 
 declare global {

@@ -1,51 +1,42 @@
-import {Text, TouchableOpacity, View} from 'react-native';
-
-const getButtonSize = (size?: 'lg' | 'xl') => {
-  let sizes = {
-    button: '',
-    text: '',
-  };
-
-  switch (size) {
-    case 'lg':
-      sizes.button = 'h-14';
-      sizes.text = 'text-lg';
-      break;
-    case 'xl':
-      sizes.button = 'h-16';
-      sizes.text = 'text-xl';
-      break;
-    default:
-      sizes.button = 'h-12';
-      sizes.text = 'text-base';
-  }
-
-  return sizes;
-};
+import {Size} from '@/types';
+import clsx from 'clsx';
+import {TouchableOpacity} from 'react-native';
 
 type ButtonProps = {
-  text: string;
-  color: string;
-  size?: 'lg' | 'xl';
-  fw?: 'font-normal' | 'font-medium' | 'font-semibold' | 'font-bold';
-  fc?: string;
+  color?: string;
+  size?: Size;
+  children?: React.ReactNode;
+  className?: string;
+  corderRadius?: number;
 };
 
 const Button = ({
-  text,
   color,
   size,
-  fw = 'font-normal',
-  fc = 'text-white',
+  children,
+  className,
+  corderRadius = 15,
 }: ButtonProps) => {
-  const sizes = getButtonSize(size);
-
   return (
-    <TouchableOpacity activeOpacity={0.7} className="w-full" onPress={() => {}}>
-      <View
-        className={`${color} ${sizes.button} rounded-2xl px-4 flex-row items-center justify-center`}>
-        <Text className={`${sizes.text} ${fw} ${fc}`}>{text}</Text>
-      </View>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      onPress={() => {}}
+      className={clsx(
+        'px-4 flex-row items-center justify-center',
+        {
+          'h-8': size === 'xs',
+          'h-10': size === 'sm',
+          'h-12': size === 'md',
+          'h-14': size === 'lg',
+          'h-16': size === 'xl',
+        },
+        className,
+      )}
+      style={{
+        backgroundColor: color,
+        borderRadius: corderRadius,
+      }}>
+      {children}
     </TouchableOpacity>
   );
 };

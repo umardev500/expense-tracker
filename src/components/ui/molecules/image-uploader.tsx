@@ -1,5 +1,4 @@
 import {IconButton, UploadImageButton} from '@/components/ui/atoms';
-import {Size} from '@/types';
 import {useState} from 'react';
 import {Image, View} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
@@ -35,7 +34,7 @@ export const ImageUploader = () => {
             />
           </View>
         ) : (
-          <UploadImageButton onPress={pickImage} size={Size.lg} />
+          <UploadImageButton onPress={pickImage} size={'lg'} />
         )}
       </View>
     </>
