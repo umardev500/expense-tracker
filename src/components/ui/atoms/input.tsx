@@ -2,9 +2,12 @@ import {Icon, IconName} from '@/components/custom-icon';
 import React, {RefObject, useImperativeHandle, useState} from 'react';
 import {
   KeyboardTypeOptions,
+  NativeSyntheticEvent,
   Pressable,
+  SubmitBehavior,
   Text,
   TextInput,
+  TextInputSubmitEditingEventData,
   View,
 } from 'react-native';
 
@@ -64,6 +67,10 @@ type InputProps = {
   keyboardType?: KeyboardTypeOptions;
   editable?: boolean;
   onPress?: () => void;
+  submitBehavior?: SubmitBehavior;
+  onSubmitEditing?: (
+    e: NativeSyntheticEvent<TextInputSubmitEditingEventData>,
+  ) => void;
   ref?: RefObject<InputRef | null>;
 };
 
@@ -89,6 +96,8 @@ const Input = ({
   size,
   keyboardType,
   editable = true,
+  submitBehavior,
+  onSubmitEditing,
   onPress,
   ref,
 }: InputProps) => {
@@ -136,6 +145,8 @@ const Input = ({
             onChangeText={setInputValue}
             className="text-base px-0 text-white/85 flex-1 h-full"
             placeholderTextColor={'rgba(255,255,255,0.5)'}
+            submitBehavior={submitBehavior}
+            onSubmitEditing={onSubmitEditing}
           />
         </View>
         {renderIcon(
