@@ -82,14 +82,14 @@ export const StatisticChart = ({data}: Props) => {
         chartHeight={CHART_HEIGHT}
         paddingVertically={PADDING_VERTICALLY}
         maxValue={maxValue}
-        disableLine
+        disableLine={false}
       />
 
       <ScrollView
         showsHorizontalScrollIndicator={false}
         horizontal
         className="h-full flex-1 ml-10"
-        contentContainerClassName="gap-4">
+        contentContainerClassName="gap-4 px-4">
         {data.map((item, index) => (
           <ChartBarItem
             key={item.title}

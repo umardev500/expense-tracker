@@ -1,3 +1,4 @@
+import React from 'react';
 import {Text, View} from 'react-native';
 
 type Props = {
@@ -47,27 +48,32 @@ export const ChartLineLabel = ({
         </View>
       )}
 
-      <View className="absolute left-0 h-full w-10">
-        {[...Array(stepCount + 1)].map((_, index) => {
-          const stepHeight = (index / stepCount) * chartHeight;
+      <View className="absolute left-0 h-full min-w-10 bg-darkbg">
+        <View>
+          {[...Array(stepCount + 1)].map((_, index) => {
+            const stepHeight = (index / stepCount) * chartHeight;
 
-          // Adjust the label to display the correct value
-          const labelValue = Math.round(step * (stepCount - index));
+            // Adjust the label to display the correct value
+            const labelValue = Math.round(step * (stepCount - index));
 
-          return (
-            <Text
-              key={index}
-              className="text-white left-0 leading-none"
-              style={{
-                position: 'absolute',
-                fontSize: labelSize,
-                top: stepHeight - labelSize / 2, // Shift label down by half of its font size (~16px / 2)
-                right: 4, // Adjust spacing from Y-axis
-              }}>
-              ${labelValue}
-            </Text>
-          );
-        })}
+            return (
+              <React.Fragment key={index}>
+                <Text
+                  className="text-white left-0 leading-none whitespace-nowrap"
+                  numberOfLines={1}
+                  style={{
+                    position: 'absolute',
+                    fontSize: labelSize,
+                    top: stepHeight - labelSize / 2, // Shift label down by half of its font size (~16px / 2)
+                    right: 4, // Adjust spacing from Y-axis
+                  }}>
+                  ${labelValue}
+                </Text>
+                <Text className="opacity-0 px-0.5">${labelValue}</Text>
+              </React.Fragment>
+            );
+          })}
+        </View>
       </View>
     </>
   );
