@@ -1,7 +1,13 @@
 import {Spacer} from '@/components/spacer';
 import {TransactionCard} from '@/components/ui/molecules';
 import {StatisticChart, Tabs} from '@/components/ui/organisms';
-import {dummyTransactions} from '@/data';
+import {
+  dummyTransactions,
+  monthlyChartData,
+  weeklyChartData,
+  yearlyChartData,
+} from '@/data';
+import {Chart} from '@/types';
 import {ScrollView, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -15,11 +21,28 @@ export const Analytics = () => {
           </View>
 
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Tabs spacingX={16} labels={['Weekly', 'Monthly', 'Yearly']} />
+            <Tabs spacingX={16} labels={['Weekly', 'Monthly', 'Yearly']}>
+              {i => {
+                var data: Chart[];
+                switch (i) {
+                  case 1:
+                    data = monthlyChartData;
+                    break;
+                  case 2:
+                    data = yearlyChartData;
+                    break;
+                  default:
+                    data = weeklyChartData;
+                    break;
+                }
 
-            <View className="py-6">
-              <StatisticChart />
-            </View>
+                return (
+                  <View className="py-6">
+                    <StatisticChart activeTab={i} data={data} />
+                  </View>
+                );
+              }}
+            </Tabs>
 
             <View className="mt-6">
               <Text className="text-white text-xl">Transactions</Text>

@@ -1,4 +1,5 @@
 import {ChartBarItem, ChartLineLabel} from '@/components/ui/molecules';
+import {Chart} from '@/types';
 import {ScrollView, View} from 'react-native';
 
 // const data = [
@@ -53,62 +54,6 @@ import {ScrollView, View} from 'react-native';
 //   },
 // ];
 
-const data = [
-  {
-    title: 'Sun',
-    value: {
-      income: 148,
-      expense: 30,
-    },
-  },
-  {
-    title: 'Mon',
-    value: {
-      income: 70,
-      expense: 40,
-    },
-  },
-  {
-    title: 'Tue',
-    value: {
-      income: 80,
-      expense: 20,
-    },
-  },
-  {
-    title: 'Wed',
-    value: {
-      income: 60,
-      expense: 50,
-    },
-  },
-  {
-    title: 'Thu',
-    value: {
-      income: 40,
-      expense: 60,
-    },
-  },
-  {
-    title: 'Fri',
-    value: {
-      income: 75,
-      expense: 25,
-    },
-  },
-  {
-    title: 'Sat',
-    value: {
-      income: 85,
-      expense: 80,
-    },
-  },
-];
-
-const maxValue = Math.max(
-  ...data.map(item => Math.max(item.value.income, item.value.expense)),
-);
-
 const LABEL_SPACING = 4;
 const TEXT_LABEL_HEIGHT = 20 + LABEL_SPACING;
 const PADDING_VERTICALLY = 0;
@@ -117,7 +62,17 @@ const CHART_HEIGHT = 192 - PADDING_VERTICALLY - TEXT_LABEL_HEIGHT; // Bar chart 
 // Calculate the step size for the Y-axis labels
 const STEP_COUNT = 5; // We are dividing the range into 5 steps
 
-export const StatisticChart = () => {
+type Props = {
+  activeTab: number;
+  data: Chart[];
+};
+
+export const StatisticChart = ({data}: Props) => {
+  // TODO: get chart data baseon active tab
+  const maxValue = Math.max(
+    ...data.map(item => Math.max(item.value.income, item.value.expense)),
+  );
+
   return (
     <View
       className="flex-row items-end w-full rounded-xl"
