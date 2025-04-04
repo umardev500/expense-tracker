@@ -1,6 +1,6 @@
 import {Spacer} from '@/components/spacer';
 import {TransactionCard} from '@/components/ui/molecules';
-import {StatisticChart} from '@/components/ui/organisms';
+import {StatisticChart, Tabs} from '@/components/ui/organisms';
 import {dummyTransactions} from '@/data';
 import {ScrollView, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -15,21 +15,9 @@ export const Analytics = () => {
           </View>
 
           <ScrollView showsVerticalScrollIndicator={false}>
-            <View className="flex-row overflow-hidden bg-white/15 rounded-xl h-10 w-full mt-2 mb-4">
-              <View className="flex-1 bg-white rounded-xl overflow-hidden items-center justify-center">
-                <Text className="text-black text-base font-medium">Weekly</Text>
-              </View>
-              <View className="flex-1 items-center justify-center">
-                <Text className="text-white text-base font-medium">
-                  Monthly
-                </Text>
-              </View>
-              <View className="flex-1 items-center justify-center">
-                <Text className="text-white text-base font-medium">Yearly</Text>
-              </View>
-            </View>
+            <Tabs spacingX={16} labels={['Weekly', 'Monthly', 'Yearly']} />
 
-            <View className="py-4">
+            <View className="py-6">
               <StatisticChart />
             </View>
 
