@@ -21,7 +21,6 @@ export const ChartBarItem = ({
   // Scale heights proportionally
   const incomeHeight = (value.income / maxValue) * chartHeight;
   const expenseHeight = (value.expense / maxValue) * chartHeight;
-  console.log(incomeHeight, value.income, maxValue);
 
   return (
     <View className="justify-end items-center">
