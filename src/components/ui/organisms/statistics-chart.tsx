@@ -57,7 +57,7 @@ const data = [
   {
     title: 'Sun',
     value: {
-      income: 68,
+      income: 148,
       expense: 30,
     },
   },
@@ -135,7 +135,7 @@ export const StatisticChart = () => {
         horizontal
         className="h-full flex-1 ml-10"
         contentContainerClassName="gap-4">
-        {data.map(item => (
+        {data.map((item, index) => (
           <ChartBarItem
             key={item.title}
             title={item.title}
@@ -143,6 +143,7 @@ export const StatisticChart = () => {
             maxValue={maxValue}
             chartHeight={CHART_HEIGHT}
             labelSpacing={LABEL_SPACING}
+            delay={index * 100}
           />
         ))}
       </ScrollView>

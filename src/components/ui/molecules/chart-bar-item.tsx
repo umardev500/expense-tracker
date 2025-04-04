@@ -1,4 +1,6 @@
+import {MotiView} from 'moti';
 import {Text, View} from 'react-native';
+import {Easing} from 'react-native-reanimated';
 
 type Props = {
   title: string;
@@ -9,6 +11,8 @@ type Props = {
   maxValue: number;
   chartHeight: number;
   labelSpacing?: number;
+  delay?: number;
+  duration?: number;
 };
 
 export const ChartBarItem = ({
@@ -17,6 +21,8 @@ export const ChartBarItem = ({
   maxValue,
   chartHeight,
   labelSpacing = 0,
+  delay = 0,
+  duration = 500,
 }: Props) => {
   // Scale heights proportionally
   const incomeHeight = (value.income / maxValue) * chartHeight;
@@ -25,13 +31,27 @@ export const ChartBarItem = ({
   return (
     <View className="justify-end items-center">
       <View className="w-8 flex-row items-end justify-between">
-        <View
+        <MotiView
           className="w-3.5 bg-lime-400 rounded-lg"
-          style={{height: incomeHeight + 0.3}}
+          from={{height: 0}}
+          animate={{height: incomeHeight}}
+          transition={{
+            type: 'timing',
+            duration,
+            delay,
+            easing: Easing.out(Easing.ease),
+          }}
         />
-        <View
+        <MotiView
           className="w-3.5 bg-red-500 rounded-lg"
-          style={{height: expenseHeight + 0.3}}
+          from={{height: 0}}
+          animate={{height: expenseHeight}}
+          transition={{
+            type: 'timing',
+            delay: delay * 2,
+            duration,
+            easing: Easing.out(Easing.ease),
+          }}
         />
       </View>
       <View style={{height: labelSpacing}} />
