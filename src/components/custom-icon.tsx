@@ -57,12 +57,18 @@ const IconFill = createIconSet(glyphMap, {
 type Props = {
   fill?: boolean;
   name: keyof typeof glyphMap;
-  size: number;
-  color: string;
+  size?: number;
+  color?: string;
   style?: StyleProp<TextStyle>;
 };
 
-export const Icon = ({fill = false, name, size, color, style}: Props) => {
+export const Icon = ({
+  fill = false,
+  name,
+  size = 24,
+  color = 'black',
+  style,
+}: Props) => {
   return fill ? (
     <IconFill name={name} size={size} color={color} style={style} />
   ) : (

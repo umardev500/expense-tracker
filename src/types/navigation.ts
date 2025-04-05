@@ -7,6 +7,7 @@ export type RootStackParamList = {
     uri?: string;
   };
   Search: undefined;
+  Profile: undefined;
 };
 
 declare global {
