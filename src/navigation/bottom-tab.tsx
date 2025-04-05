@@ -67,7 +67,7 @@ export const BottomTab = () => {
       />
       <Tab.Screen
         options={{
-          title: 'Advance',
+          title: 'Account',
           tabBarIcon: props => {
             return TabIcon({...props, name: 'settings'});
           },
