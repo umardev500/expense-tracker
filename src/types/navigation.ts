@@ -1,7 +1,9 @@
 export type RootStackParamList = {
   Main: undefined;
   AddTransaction: undefined;
-  Login: undefined;
+  Login: {
+    register?: boolean;
+  };
   NewWallet: {
     name?: string;
     uri?: string;

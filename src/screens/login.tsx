@@ -1,10 +1,13 @@
 import {Icon} from '@/components/custom-icon';
 import {Button, Input, InputRef} from '@/components/ui/atoms';
+import {useAuth} from '@/hooks';
+import {RootStackParamList} from '@/types';
 import {androidToast} from '@/utils';
-import auth from '@react-native-firebase/auth';
+import {useNavigation} from '@react-navigation/native';
+import {StackScreenProps} from '@react-navigation/stack';
+import clsx from 'clsx';
 import React, {useRef} from 'react';
 import {
-  Alert,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -14,56 +17,31 @@ import {
 import {SystemBars} from 'react-native-edge-to-edge';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-export const Login = () => {
+type Props = StackScreenProps<RootStackParamList, 'Login'>;
+
+export const Login = ({route}: Props) => {
   const emailRef = useRef<InputRef | null>(null);
   const passwordRef = useRef<InputRef | null>(null);
+  const navigation = useNavigation();
+  const {register} = route.params || {};
 
-  const handleLogin = async () => {
+  const {login, register: registerAuth} = useAuth();
+  const handleAuth = async () => {
     const email = emailRef.current?.getValue();
     const password = passwordRef.current?.getValue();
-
     if (!email || !password) {
-      Alert.alert('Login failed', 'Please enter both email and password', [
-        {
-          text: 'OK',
-          onPress: () => {},
-        },
-      ]);
+      androidToast('Please enter both email and password');
       return;
     }
 
     try {
-      const userCreds = await auth().signInWithEmailAndPassword(
-        email,
-        password,
-      );
-      console.log(userCreds);
-    } catch (err: any) {
-      if (err.code) {
-        switch (err.code) {
-          case 'auth/invalid-email':
-            androidToast('❌ Invalid email format');
-            break;
-          case 'auth/user-not-found':
-            androidToast('❌ No user found for that email');
-            break;
-          case 'auth/wrong-password':
-            androidToast('❌ Incorrect password');
-            break;
-          case 'auth/user-disabled':
-            androidToast('🚫 User account is disabled');
-            break;
-          case 'auth/invalid-credential':
-            androidToast('🚫 Malformed or expired credential');
-            break;
-          default:
-            androidToast(`❗ Unhandled Firebase Auth error: ${err.code}`);
-            break;
-        }
+      if (register) {
+        registerAuth(email, password);
       } else {
-        console.error('🛑 Unknown error:', err);
+        const creds = await login(email, password);
+        console.log('creds', creds?.user.emailVerified);
       }
-    }
+    } catch (err: any) {}
   };
 
   return (
@@ -110,18 +88,23 @@ export const Login = () => {
               </View>
             </View>
 
-            <View className="flex-row justify-end py-4">
-              <TouchableOpacity
-                className="flex-row inline-flex"
-                onPress={() => {}}>
-                <Text className="text-white/70">Forgot Password?</Text>
-              </TouchableOpacity>
-            </View>
+            {!register && (
+              <View className="flex-row justify-end py-4">
+                <TouchableOpacity
+                  className="flex-row inline-flex"
+                  onPress={() => {}}>
+                  <Text className="text-white/70">Forgot Password?</Text>
+                </TouchableOpacity>
+              </View>
+            )}
 
-            <View className="gap-5 items-center">
+            <View
+              className={clsx('gap-5 items-center', {
+                'mt-4': register,
+              })}>
               <Button
                 className="w-full"
-                onPress={handleLogin}
+                onPress={handleAuth}
                 color="#a3e635"
                 size="lg"
                 corderRadius={18}>
@@ -130,11 +113,18 @@ export const Login = () => {
 
               <View className="flex-row gap-1">
                 <Text className="text-base text-white/70">
-                  Dont't have an account?
+                  {register
+                    ? 'Already have an account?'
+                    : "Don't have an account?"}
                 </Text>
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                  onPress={() =>
+                    navigation.navigate('Login', {
+                      register: !register,
+                    })
+                  }>
                   <Text className="text-base text-lime-500 font-semibold">
-                    Sign up
+                    {register ? 'Sign in' : 'Sign up'}
                   </Text>
                 </TouchableWithoutFeedback>
               </View>
