@@ -1,5 +1,7 @@
 import {Icon} from '@/components/custom-icon';
 import {Button, Input, InputRef} from '@/components/ui/atoms';
+import {androidToast} from '@/utils';
+import auth from '@react-native-firebase/auth';
 import React, {useRef} from 'react';
 import {
   Alert,
@@ -16,7 +18,7 @@ export const Login = () => {
   const emailRef = useRef<InputRef | null>(null);
   const passwordRef = useRef<InputRef | null>(null);
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const email = emailRef.current?.getValue();
     const password = passwordRef.current?.getValue();
 
@@ -30,7 +32,38 @@ export const Login = () => {
       return;
     }
 
-    console.log(email, password);
+    try {
+      const userCreds = await auth().signInWithEmailAndPassword(
+        email,
+        password,
+      );
+      console.log(userCreds);
+    } catch (err: any) {
+      if (err.code) {
+        switch (err.code) {
+          case 'auth/invalid-email':
+            androidToast('❌ Invalid email format');
+            break;
+          case 'auth/user-not-found':
+            androidToast('❌ No user found for that email');
+            break;
+          case 'auth/wrong-password':
+            androidToast('❌ Incorrect password');
+            break;
+          case 'auth/user-disabled':
+            androidToast('🚫 User account is disabled');
+            break;
+          case 'auth/invalid-credential':
+            androidToast('🚫 Malformed or expired credential');
+            break;
+          default:
+            androidToast(`❗ Unhandled Firebase Auth error: ${err.code}`);
+            break;
+        }
+      } else {
+        console.error('🛑 Unknown error:', err);
+      }
+    }
   };
 
   return (
@@ -87,6 +120,7 @@ export const Login = () => {
 
             <View className="gap-5 items-center">
               <Button
+                className="w-full"
                 onPress={handleLogin}
                 color="#a3e635"
                 size="lg"

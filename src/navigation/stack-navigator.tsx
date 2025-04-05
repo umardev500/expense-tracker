@@ -9,7 +9,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 export const StackNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Main"
+      initialRouteName="Login"
       screenOptions={{
         cardStyle: {
           backgroundColor: 'transparent',

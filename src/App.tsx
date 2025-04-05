@@ -1,5 +1,5 @@
 import {AppNavigator} from '@/navigation';
-import firebase from '@react-native-firebase/app';
+import {getApps} from '@react-native-firebase/app';
 import {useEffect} from 'react';
 import {View} from 'react-native';
 import {SystemBars} from 'react-native-edge-to-edge';
@@ -9,7 +9,7 @@ import './global.css';
 
 const App = () => {
   useEffect(() => {
-    const isInitialized = firebase.apps.length > 0;
+    const isInitialized = getApps();
     console.log('🔥 Firebase initialized:', isInitialized);
   }, []);
 
