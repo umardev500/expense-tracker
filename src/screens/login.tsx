@@ -1,7 +1,8 @@
 import {Icon} from '@/components/custom-icon';
-import {Button, Input} from '@/components/ui/atoms';
-import React from 'react';
+import {Button, Input, InputRef} from '@/components/ui/atoms';
+import React, {useRef} from 'react';
 import {
+  Alert,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -12,6 +13,26 @@ import {SystemBars} from 'react-native-edge-to-edge';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const Login = () => {
+  const emailRef = useRef<InputRef | null>(null);
+  const passwordRef = useRef<InputRef | null>(null);
+
+  const handleLogin = () => {
+    const email = emailRef.current?.getValue();
+    const password = passwordRef.current?.getValue();
+
+    if (!email || !password) {
+      Alert.alert('Login failed', 'Please enter both email and password', [
+        {
+          text: 'OK',
+          onPress: () => {},
+        },
+      ]);
+      return;
+    }
+
+    console.log(email, password);
+  };
+
   return (
     <>
       <SystemBars style={'light'} />
@@ -38,6 +59,7 @@ export const Login = () => {
 
               <View className="gap-4">
                 <Input
+                  ref={emailRef}
                   size="lg"
                   placeholder="Type your email"
                   leadingIcon={
@@ -45,6 +67,7 @@ export const Login = () => {
                   }
                 />
                 <Input
+                  ref={passwordRef}
                   size="lg"
                   placeholder="Enter password"
                   leadingIcon={
@@ -64,12 +87,12 @@ export const Login = () => {
 
             <View className="gap-5 items-center">
               <Button
-                text="Login"
-                color="bg-lime-400"
+                onPress={handleLogin}
+                color="#a3e635"
                 size="lg"
-                fw="font-bold"
-                fc="text-gray-800"
-              />
+                corderRadius={18}>
+                <Text className="text-black text-xl font-bold">Login</Text>
+              </Button>
 
               <View className="flex-row gap-1">
                 <Text className="text-base text-white/70">

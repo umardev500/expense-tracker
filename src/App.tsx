@@ -1,4 +1,6 @@
 import {AppNavigator} from '@/navigation';
+import firebase from '@react-native-firebase/app';
+import {useEffect} from 'react';
 import {View} from 'react-native';
 import {SystemBars} from 'react-native-edge-to-edge';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -6,6 +8,11 @@ import {KeyboardProvider} from 'react-native-keyboard-controller';
 import './global.css';
 
 const App = () => {
+  useEffect(() => {
+    const isInitialized = firebase.apps.length > 0;
+    console.log('🔥 Firebase initialized:', isInitialized);
+  }, []);
+
   return (
     <>
       <SystemBars style={'light'} />
