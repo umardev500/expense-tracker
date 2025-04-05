@@ -1,9 +1,11 @@
 import {MenuItem} from '@/components/ui/molecules';
-import {accountMenus} from '@/data/account-menu';
+import {useAccountMenus} from '@/hooks';
 import {Image, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const Account = () => {
+  const menus = useAccountMenus();
+
   return (
     <View className="flex-1 bg-darkbg">
       <SafeAreaView style={{flex: 1}}>
@@ -27,7 +29,7 @@ export const Account = () => {
 
             <View className="mt-12">
               <View className="gap-5">
-                {accountMenus.map((menu, index) => (
+                {menus.map((menu, index) => (
                   <MenuItem
                     key={index}
                     title={menu.title}
@@ -37,7 +39,7 @@ export const Account = () => {
                       boxSize: menu.iconBox?.boxSize,
                       containerColor: menu.iconBox?.containerColor,
                     }}
-                    onPress={() => {}}
+                    onPress={menu.onPress}
                   />
                 ))}
               </View>
