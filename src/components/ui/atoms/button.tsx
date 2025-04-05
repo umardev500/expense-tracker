@@ -8,6 +8,7 @@ type ButtonProps = {
   children?: React.ReactNode;
   className?: string;
   corderRadius?: number;
+  onPress?: () => void;
 };
 
 const Button = ({
@@ -16,11 +17,12 @@ const Button = ({
   children,
   className,
   corderRadius = 15,
+  onPress,
 }: ButtonProps) => {
   return (
     <TouchableOpacity
       activeOpacity={0.7}
-      onPress={() => {}}
+      onPress={onPress}
       className={clsx(
         'px-4 flex-row items-center justify-center',
         {
