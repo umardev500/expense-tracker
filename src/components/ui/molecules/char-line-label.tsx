@@ -48,7 +48,7 @@ export const ChartLineLabel = ({
         </View>
       )}
 
-      <View className="absolute left-0 h-full min-w-10 bg-darkbg">
+      <View className="left-0 h-full min-w-10 bg-darkbg">
         <View>
           {[...Array(stepCount + 1)].map((_, index) => {
             const stepHeight = (index / stepCount) * chartHeight;

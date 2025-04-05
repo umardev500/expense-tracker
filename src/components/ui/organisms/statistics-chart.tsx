@@ -88,8 +88,8 @@ export const StatisticChart = ({data}: Props) => {
       <ScrollView
         showsHorizontalScrollIndicator={false}
         horizontal
-        className="h-full flex-1 ml-10"
-        contentContainerClassName="gap-4 px-4">
+        className="h-full flex-1"
+        contentContainerClassName="gap-3 px-2">
         {data.map((item, index) => (
           <ChartBarItem
             key={item.title}
