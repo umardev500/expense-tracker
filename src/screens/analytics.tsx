@@ -57,6 +57,7 @@ export const Analytics = () => {
                   <Spacer className="h-4" />
                 </View>
               ))}
+              <Spacer className="h-6" />
             </View>
           </ScrollView>
         </View>
