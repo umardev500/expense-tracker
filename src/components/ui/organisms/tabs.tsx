@@ -36,6 +36,7 @@ export const Tabs = ({labels, spacingX = 0, children}: Props) => {
 
           return (
             <Pressable
+              key={index}
               onPress={() => {
                 setActiveTab(index);
               }}
